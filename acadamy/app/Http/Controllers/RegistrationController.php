@@ -39,9 +39,12 @@ class RegistrationController extends Controller
 		if ($validator->fails()) { 
 			return View('registration');           
         }
-        $from = new DateTime($request->child_dob);
-        $to   = new DateTime('today');
-        $age = $from->diff($to)->y;
+        $dateOfBirth = date("Y-m-d",strtotime($request->child_dob));;
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dateOfBirth), date_create($today));
+        $age = $diff->format('%y');
+        $ses = $this->getSession($age);
+        if($ses!=6){
         $reg = new Registration();
         $reg->child_title = $request->title;
         $reg->child_surname = $request->child_surname;
@@ -68,15 +71,12 @@ class RegistrationController extends Controller
         $reg->other_telh = $request->other_telh;
         $reg->other_telw = $request->other_telw;
         $reg->user_id = Auth::user()->id;
+        $reg->type = $ses;
         $reg->save();
-    }
-    public function getPlayers(Request $request){
-        $player = Registration::where('user_id',Auth::user()->id)->get();
-        return view('registration')->withPlayers($player);
-    }
-    public function getPlayerById($id){
-        $player = Registration::find($id);
-        return view('registration')->withPlayer($player);
+        return redirect("session")->withSuccess('Player Added Successfully');
+        }else{
+            return View('registration')->withSuccess('Invalid Age');
+        }
     }
     public function getSession($age){
         if($age<=9){
@@ -84,6 +84,17 @@ class RegistrationController extends Controller
         }
         if($age>9 && $age<=11){
             return 2;
+        }
+        if($age>11 && $age<=13){
+            return 3;
+        }
+        if($age>11 && $age<=16){
+            return 4;
+        }
+        if($age>16 && $age<=19){
+            return 5;
+        }else{
+            return 6;
         }
     }
 }

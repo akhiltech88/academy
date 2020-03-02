@@ -36,4 +36,7 @@ Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@login');
 Route::get('logout', 'UserController@logout');
 Route::post('player', 'RegistrationController@createPlayer');
+Route::post('team', 'TeamController@createTeam');
 Route::get('session', 'SessionController@getSession');
+Route::post('session', 'SessionController@saveSession');
+Route::get('player/{id}/session', 'SessionController@getSessionById');

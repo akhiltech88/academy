@@ -19,15 +19,16 @@ class TeamController extends Controller
             'total_players' => 'required'
 		]);
 		if ($validator->fails()) { 
-			return View('team');           
+			return View('teamregistration');           
         }
         $team = new Team();
-        $team->team_name = $request->team_name;
-        $team->contact_person = $request->contact_person;
+        $team->name = $request->team_name;
+        $team->contact = $request->contact_person;
         $team->email = $request->email;
         $team->mobile = $request->mobile;
         $team->total_players = $request->total_players;
         $team->user_id = Auth::user()->id;
         $team->save();
+        return View('teamregistration');
     }
 }
