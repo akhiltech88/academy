@@ -70,6 +70,14 @@ class RegistrationController extends Controller
         $reg->user_id = Auth::user()->id;
         $reg->save();
     }
+    public function getPlayers(Request $request){
+        $player = Registration::where('user_id',Auth::user()->id)->get();
+        return view('registration')->withPlayers($player);
+    }
+    public function getPlayerById($id){
+        $player = Registration::find($id);
+        return view('registration')->withPlayer($player);
+    }
     public function getSession($age){
         if($age<=9){
             return 1;
