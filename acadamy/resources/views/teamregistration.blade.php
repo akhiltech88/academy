@@ -11,7 +11,7 @@
 							<h3 class="box-title">Team Registration</h3>			  
 						</div>
 						<div class="box-body">
-							<form class="form-horizontal" method="post">
+							<form class="form-horizontal" method="post" action="team">
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Team Name<span class="required-feild">*</span></label>

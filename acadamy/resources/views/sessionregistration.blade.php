@@ -51,21 +51,9 @@
 										<div class="col-md-8 inputGroupContainer">
 											<div class="input-group">
 												<select name="total_players" class="form-control selectpicker" required>
-													<option value="1">Individual Session – 1 Session</option>
-                                                    <option value="2">Individual Session – 1 Month</option>
-													<option>U9 Group Session – 1 Month</option>
-													<option value="">U9 Group Session – 3 Months</option>
-													<option value="">U9 Group Session – 6 Months</option>
-													<option value="">U9 Group Session – 12 Months</option>
-													<option value="">U11 Group Session – 1 Month</option>
-													<option value="">U11 Group Session – 3 Months</option>
-													<option value="">U11 Group Session – 6 Months</option>
-													<option value="">U11 Group Session – 12 Months</option>
-													<option value="">U13 Group Session – 1 Month</option>
-													<option value="">U13 Group Session – 3 Months</option>
-													<option value="">U13 Group Session – 6 Months</option>
-													<option value="">U13 Group Session – 12 Months</option>
-													<option value="">U16 Group Session – 1 Month</option>
+													@foreach($groups as $group)
+													<option value="{{ $group->id }}">{{ $group->name }}</option>
+													@endfor
                                                 </select>
                                                 <div class="description">
 												OMR 15 , 1 Session, 45 Min
