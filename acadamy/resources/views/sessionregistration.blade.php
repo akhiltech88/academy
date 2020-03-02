@@ -40,8 +40,9 @@
 										<div class="col-md-8 inputGroupContainer">
 											<div class="input-group">
 												<select name="total_players" class="form-control selectpicker" required>
-													<option value="1">player1</option>
-                                                    <option value="2">player2</option>
+													@foreach($players as $player)
+													<option value="{{ $player->id }}">{{ $player->name }}</option>
+													@endfor
 												</select>
 											</div>
 										</div>
