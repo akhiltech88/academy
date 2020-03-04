@@ -51,7 +51,7 @@
   <script>
     var baseUrl = window.location.origin;
     function individual(){
-      window.location.href = baseUrl+'/registration';
+      window.location.href = baseUrl+'/player';
     }
     function team(){
       window.location.href = baseUrl+'/team';

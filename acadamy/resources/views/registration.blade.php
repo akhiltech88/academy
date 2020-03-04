@@ -7,14 +7,14 @@
 		<section class="content">
 			<div class="row">
 				<div class="col-xs-12">
-					<div class="box">
+					<div class="box" id="box">
 						<div class="box-header with-border">
 							<h3 class="box-title">Create Individual Registration</h3>			  
 						</div>
 						<div class="box-body">
 							<form class="form-horizontal" method="post" action="player">
 							<div class="col-sm-12">
-								<h3 style="text-align:center; margin-top:5px;">CHILD INFORMATION</h3>
+								<h3 style="text-align:center; margin-top:5px;">PLAYER INFORMATION</h3>
 								<hr>
 								<div class="col-sm-6">
 									<div class="form-group">
@@ -164,36 +164,36 @@
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Home Address<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Home Address</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<textarea rows="4" style="overflow:hidden;" class="form-control" name="home" placeholder="Home Address" required >
+												<textarea rows="4" style="overflow:hidden;" class="form-control" name="home" placeholder="Home Address">
 													
 												</textarea>
 												</div>
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Code<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Code</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="home_code" placeholder="Code" class="form-control" type="text" required>
+												<input name="home_code" placeholder="Code" class="form-control" type="text">
 												</div>
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Tel(H)<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Tel(H)</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="parent_telh" placeholder="Tel(H)" class="form-control" type="text" required>
+												<input name="parent_telh" placeholder="Tel(H)" class="form-control" type="text">
 												</div>
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Tel(W)<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Tel(W)</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="parent_telw" placeholder="Tel(W)" class="form-control" type="text" required>
+												<input name="parent_telw" placeholder="Tel(W)" class="form-control" type="text">
 												</div>
 											</div>
 									</div>
@@ -215,36 +215,36 @@
 							<div class="col-sm-12">
 								<div class="col-sm-6">									
 									<div class="form-group">
-										<label class="col-md-4 control-label">Name<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Name</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="other_contact" placeholder="Other contact" class="form-control" type="text" required>
+												<input name="other_contact" placeholder="Other contact" class="form-control" type="text">
 												</div>
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Tel(H)<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Tel(H)</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="other_telh" placeholder="Tel(H)" class="form-control" type="text" required>
+												<input name="other_telh" placeholder="Tel(H)" class="form-control" type="text">
 												</div>
 											</div>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label class="col-md-4 control-label">Cell<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Cell</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="other_cell" placeholder="Cell" class="form-control" type="text" required>
+												<input name="other_cell" placeholder="Cell" class="form-control" type="text">
 												</div>
 											</div>
 									</div>									
 									<div class="form-group">
-										<label class="col-md-4 control-label">Tel(W)<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Tel(W)</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="other_telw" placeholder="Tel(W)" class="form-control" type="text" required>
+												<input name="other_telw" placeholder="Tel(W)" class="form-control" type="text">
 												</div>
 											</div>
 									</div>
@@ -253,7 +253,7 @@
 							<div class="form-group">
 									<label class="col-md-4 control-label"></label>
 										<div class="col-md-8">
-										<a type="button" href="#!/players" class="btn btn-primary btn-pre">Cancel</a>
+										<a type="button" href="player" class="btn btn-primary btn-pre">Cancel</a>
 										<button type="submit" class="btn btn-primary btn-save">Save</button>
 										</div>
 								</div>
@@ -287,7 +287,10 @@
    	dateFormat: 'dd-mm-yy',
    	autoclose: true
    });  
-   setTimeout(function(){ var h = window.innerHeight+633;
+   setTimeout(function(){ 
+	var elmnt = document.getElementById("box");
+	console.log('elmnt.offsetHeight', elmnt.offsetHeight);
+	   var h = window.innerHeight+633;
   $('.main-sidebar').css('min-height', h); }, 300);
   
 </script>

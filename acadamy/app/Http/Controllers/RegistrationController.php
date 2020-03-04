@@ -26,15 +26,7 @@ class RegistrationController extends Controller
             'parent_cell' => 'required',
             'parent_fax' => 'required',
             'parent_name' => 'required',
-            'home' => 'required',
-            'home_code' => 'required',
-            'parent_telh' => 'required',
-            'parent_telw' => 'required',
-            'employer' => 'required',
-            'other_contact' => 'required',
-            'other_telh' => 'required',
-            'other_cell' => 'required',
-            'other_telw' => 'required'
+            'employer' => 'required'
 		]);
 		if ($validator->fails()) { 
 			return View('registration');           
@@ -96,5 +88,12 @@ class RegistrationController extends Controller
         }else{
             return 6;
         }
+    }
+    public function playerList(Request $request){
+        if(Auth::user()->client_admin == 0)
+        $player = Registration::with('player_session.session')->where('user_id',Auth::user()->id)->paginate(10);
+        else
+        $player = Registration::with('player_session.session')->paginate(10);
+        return view('playerlist')->withPlayers($player);
     }
 }

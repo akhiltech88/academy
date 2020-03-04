@@ -365,7 +365,7 @@
                     <th>Wednesday</th>
                     <th>Thursday</th>
                     <th>Friday</th>
-                    <th>Saterday</th>
+                    <th>Saturday</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -460,6 +460,9 @@
           </p>
           <p>
             <span><i class="icon-phone"></i><strong>Phone:</strong> +968 24970018 or +968 24970331</span>
+          </p>
+          <p>
+            <span><i class="icon-phone"></i><strong>Mobile:</strong> +968 91924529</span>
           </p>
           <p>
             <span><i class="icon-envelope-alt"></i><strong>Email:</strong> academy@omancricket.org</span>

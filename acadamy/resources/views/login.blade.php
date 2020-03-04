@@ -37,6 +37,9 @@
             <div class="box-header1 with-border">
               <h1 class="page-title">Sign in</h1>
             </div>
+            @if($errors->any())
+            <div class="error" style="color:red;text-align:center;">{{ implode('', $errors->all(':message')) }}</div>
+            @endif
             <form role="form" name="login_form" method="post" action="login">
                {{ csrf_field() }}
             <div class="box-body">

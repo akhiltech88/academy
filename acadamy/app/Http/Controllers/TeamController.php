@@ -31,4 +31,11 @@ class TeamController extends Controller
         $team->save();
         return View('teamregistration');
     }
+    public function teamList(Request $request){
+        if(Auth::user()->client_admin == 0)
+        $teams = Team::with('team_session.session')->where('user_id',Auth::user()->id)->paginate(10);
+        else
+        $teams = Team::with('team_session.session')->paginate(10);
+        return view('teamlist')->withTeams($teams);
+    }
 }

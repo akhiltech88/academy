@@ -45,7 +45,8 @@ class UserController extends Controller
 			return redirect('/home');
 		} 
 		else{ 
-			return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');		
+			return redirect()->back()->withErrors('Invalid Email or Password');
+		//	return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');		
 		}			 
 	}
 	public function changePassword(Request $request,$id){
