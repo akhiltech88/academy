@@ -11,7 +11,7 @@
 							<h3 class="box-title">Team Registration</h3>			  
 						</div>
 						<div class="box-body">
-							<form class="form-horizontal" method="post" action="team">
+							<form class="form-horizontal" method="post" action="team_register" enctype="multipart/form-data">
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Team Name<span class="required-feild">*</span></label>
@@ -29,6 +29,25 @@
 											</div>
 										</div>
 								</div>
+								<div class="form-group">
+										<label class="col-md-4 control-label">ID Number<span class="required-feild">*</span></label>
+											<div class="col-md-8 inputGroupContainer">
+												<div class="input-group">
+												<input name="idnumber" placeholder="ID Number" class="form-control" type="text" required>
+												</div>
+											</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Id Copy<span class="required-feild">*</span></label>
+											<div class="col-md-8 inputGroupContainer">
+												<div class="input-group">
+													<input id="id_copy" name="id_copy" placeholder="ID Copy" class="form-control" type="file" accept="application/pdf" required>
+													<div id="" class="description">
+														One file only.<br>500 KB limit.<br>Allowed types: pdf.
+													</div>	
+												</div>
+											</div>
+									</div>
 								<div class="form-group">
 									<label class="col-md-4 control-label">Email<span class="required-feild">*</span></label>
 										<div class="col-md-8 inputGroupContainer">
@@ -61,7 +80,7 @@
 							<div class="form-group">
 									<label class="col-md-4 control-label"></label>
 										<div class="col-md-8">
-										<a type="button" href="/team" class="btn btn-primary btn-pre">Cancel</a>
+										<a type="button" href="/teamlist" class="btn btn-primary btn-pre">Cancel</a>
 										<button type="submit" id="btn-submit" class="btn btn-primary btn-save">Save</button>
 										</div>
 								</div>
@@ -78,22 +97,18 @@
 <script>
 	$(document).ready(function () {
 		$('.sidebar-menu').tree()
-		var h = window.innerHeight;  
+		var h = window.innerHeight+30;  
   $('.content-wrapper').css('min-height', h);
   $('.main-sidebar').css('min-height', h);
 	})
-   //Date picker
-   $('#datepicker').datepicker({
-   	dateFormat: 'dd-mm-yy',
-   	autoclose: true
-   });
-   $('#datepicker1').datepicker({
-   	dateFormat: 'dd-mm-yy',
-   	autoclose: true
-   });
-   $('#datepicker2').datepicker({
-   	dateFormat: 'dd-mm-yy',
-   	autoclose: true
-   });  
+
+	var uploadField = document.getElementById("id_copy");
+
+uploadField.onchange = function() {
+	if(this.files[0].size>500001){
+        alert('Id Copy morethan 500Kb');
+		this.value = "";
+      }
+}; 
   
 </script>

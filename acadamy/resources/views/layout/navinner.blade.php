@@ -43,13 +43,13 @@
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a class="dropdown-toggle" data-toggle="dropdown">
-            <img src="dist/img/oclogo.png" class="user-image" alt="User Image">
+            <img src="{{ URL::asset('dist/img/oclogo.png') }}" class="user-image" alt="User Image">
             <span class="hidden-xs">{{ ucfirst(Auth()->user()->name) }}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="dist/img/oclogo.png" class="img-circle" alt="User Image">
+              <img src="{{ URL::asset('dist/img/oclogo.png') }}" class="img-circle" alt="User Image">
 
               <p>
               {{ ucfirst(Auth()->user()->name) }}

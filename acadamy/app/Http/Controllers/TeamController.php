@@ -16,6 +16,8 @@ class TeamController extends Controller
             'contact_person' => 'required',
             'email' => 'required', 
             'mobile' => 'required',
+            'idnumber' => 'required',
+            'id_copy' => 'required|file',
             'total_players' => 'required'
 		]);
 		if ($validator->fails()) { 
@@ -27,7 +29,14 @@ class TeamController extends Controller
         $team->email = $request->email;
         $team->mobile = $request->mobile;
         $team->total_players = $request->total_players;
+        $team->id_number = $request->idnumber;
         $team->user_id = Auth::user()->id;
+        if ($request->hasFile('id_copy')) {
+            $name = "id".time();
+            $extension = $request->id_copy->extension();
+            $request->file('id_copy')->move(public_path().'/team/id',$name.".".$extension);
+            $team->id_copy = "team/id/".$name.".".$extension;
+        }
         $team->save();
         return View('teamregistration');
     }

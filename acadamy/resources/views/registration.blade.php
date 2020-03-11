@@ -12,7 +12,7 @@
 							<h3 class="box-title">Create Individual Registration</h3>			  
 						</div>
 						<div class="box-body">
-							<form class="form-horizontal" method="post" action="player">
+							<form class="form-horizontal" method="post" action="player_register" enctype="multipart/form-data">
 							<div class="col-sm-12">
 								<h3 style="text-align:center; margin-top:5px;">PLAYER INFORMATION</h3>
 								<hr>
@@ -29,10 +29,10 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Sur Name<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Surname<span class="required-feild">*</span></label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="child_surname" placeholder="Sur Name" class="form-control" type="text" required>
+												<input name="child_surname" placeholder="Surname" class="form-control" type="text" required>
 												</div>
 											</div>
 									</div>
@@ -43,8 +43,19 @@
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-											<input type="text" class="form-control pull-right" id="datepicker2" name="child_dob">
+											<input class="form-control" id="date" name="child_dob" placeholder="DD-MM-YYY" type="text" autocomplete="off"/>
+											<!-- <input type="text" class="form-control pull-right" id="datepicker2" name="child_dob"> -->
+											</div> 
 											</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Special Medical Condition<span class="required-feild">*</span></label>
+											<div class="col-md-8 inputGroupContainer">
+												<div class="input-group">
+												<textarea rows="4" style="overflow:hidden;" class="form-control" name="medical" placeholder="Special Medical Condition" required >
+													
+												</textarea>
+												</div>
 											</div>
 									</div>
 								</div><!-- col-sm-6 -->
@@ -66,12 +77,26 @@
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Special Medical Condition<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Nationality<span class="required-feild">*</span></label>  
+										<div class="col-md-8 inputGroupContainer">
+											<div class="input-group">								
+											<select name="nationality" class="form-control selectpicker" required>
+												<option value="">Select</option>
+												@foreach($countries as $nation)
+												<option value="{{$nation->nationality_id}}">{{$nation->nationality_name}}</option>
+												@endforeach
+											</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-4 control-label">Id Copy<span class="required-feild">*</span></label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<textarea rows="4" style="overflow:hidden;" class="form-control" name="medical" placeholder="Special Medical Condition" required >
-													
-												</textarea>
+													<input id="id_copy" name="id_copy" placeholder="ID Copy" class="form-control" type="file" accept="application/pdf" required>
+													<div id="" class="description">
+														One file only.<br>500 KB limit.<br>Allowed types: pdf.
+													</div>	
 												</div>
 											</div>
 									</div>
@@ -96,10 +121,10 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Sur Name<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Surname<span class="required-feild">*</span></label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="parent_surname" placeholder="Sur Name" class="form-control" type="text" required>
+												<input name="parent_surname" placeholder="Surname" class="form-control" type="text" required>
 												</div>
 											</div>
 									</div>
@@ -114,7 +139,7 @@
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Code<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Postal Code<span class="required-feild">*</span></label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
 												<input name="postal_code" placeholder="Code" class="form-control" type="text" required>
@@ -138,10 +163,18 @@
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Fax No:<span class="required-feild">*</span></label>
+										<label class="col-md-4 control-label">Fax No:</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
-												<input name="parent_fax" placeholder="Fax No" class="form-control" type="text" required>
+												<input name="parent_fax" placeholder="Fax No" class="form-control" type="text">
+												</div>
+											</div>
+									</div>									
+									<div class="form-group">
+										<label class="col-md-4 control-label">Tel(W)</label>
+											<div class="col-md-8 inputGroupContainer">
+												<div class="input-group">
+												<input name="parent_telw" placeholder="Tel(W)" class="form-control" type="text">
 												</div>
 											</div>
 									</div>
@@ -164,6 +197,17 @@
 											</div>
 									</div>
 									<div class="form-group">
+										<label class="col-md-4 control-label">Id Copy<span class="required-feild">*</span></label>
+											<div class="col-md-8 inputGroupContainer">
+												<div class="input-group">
+													<input id="parentid_copy" name="parentid_copy" placeholder="ID Copy" class="form-control" type="file" accept="application/pdf" required>
+													<div id="" class="description">
+														One file only.<br>500 KB limit.<br>Allowed types: pdf.
+													</div>	
+												</div>
+											</div>
+									</div>
+									<div class="form-group">
 										<label class="col-md-4 control-label">Home Address</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
@@ -174,7 +218,7 @@
 											</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Code</label>
+										<label class="col-md-4 control-label">Postal Code</label>
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
 												<input name="home_code" placeholder="Code" class="form-control" type="text">
@@ -186,14 +230,6 @@
 											<div class="col-md-8 inputGroupContainer">
 												<div class="input-group">
 												<input name="parent_telh" placeholder="Tel(H)" class="form-control" type="text">
-												</div>
-											</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Tel(W)</label>
-											<div class="col-md-8 inputGroupContainer">
-												<div class="input-group">
-												<input name="parent_telw" placeholder="Tel(W)" class="form-control" type="text">
 												</div>
 											</div>
 									</div>
@@ -253,7 +289,7 @@
 							<div class="form-group">
 									<label class="col-md-4 control-label"></label>
 										<div class="col-md-8">
-										<a type="button" href="player" class="btn btn-primary btn-pre">Cancel</a>
+										<a type="button" href="playerlist" class="btn btn-primary btn-pre">Cancel</a>
 										<button type="submit" class="btn btn-primary btn-save">Save</button>
 										</div>
 								</div>
@@ -274,23 +310,39 @@
   $('.content-wrapper').css('min-height', h);
   $('.main-sidebar').css('min-height', h);
 	})
-   //Date picker
-   $('#datepicker').datepicker({
-   	dateFormat: 'dd-mm-yy',
-   	autoclose: true
-   });
-   $('#datepicker1').datepicker({
-   	dateFormat: 'dd-mm-yy',
-   	autoclose: true
-   });
-   $('#datepicker2').datepicker({
-   	dateFormat: 'dd-mm-yy',
-   	autoclose: true
-   });  
+   
+var uploadField = document.getElementById("id_copy");
+
+uploadField.onchange = function() {
+	if(this.files[0].size>500001){
+        alert('Id Copy morethan 500Kb');
+		this.value = "";
+      }
+};
+var parentId = document.getElementById("parentid_copy");
+parentId.onchange = function() {
+	if(this.files[0].size>500001){
+        alert('Id Copy morethan 500Kb');
+		this.value = "";
+      }
+};
+
+var date_input=$('input[name="child_dob"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd-mm-yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+
    setTimeout(function(){ 
 	var elmnt = document.getElementById("box");
 	console.log('elmnt.offsetHeight', elmnt.offsetHeight);
-	   var h = window.innerHeight+633;
+	console.log('Inner height', window.innerHeight);
+	//   var h = window.innerHeight+633;
+	var h = elmnt.offsetHeight+170;
   $('.main-sidebar').css('min-height', h); }, 300);
   
 </script>

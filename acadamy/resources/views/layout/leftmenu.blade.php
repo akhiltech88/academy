@@ -4,7 +4,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/oclogo.png" class="img-circle" alt="User Image">
+          <img src="{{ URL::asset('dist/img/oclogo.png') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><b>Oman </b> Cricket</p>
@@ -15,7 +15,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="#!/dashboard">
+          <a href="/home">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               
@@ -38,12 +38,26 @@
             </li>
           </ul>
         </li>
-        <li ng-if="superAdmin == 'true'">
-          <a href="session">
+        <li>
+          <a href="/session">
             <i class="fa fa-cubes"></i> <span>Session Registration</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
+        <li>
+          <a href="/payments">
+            <i class="fa fa-clock-o"></i> <span>Payment Options</span>
+            <span class="pull-right-container"></span>
+          </a>
+        </li>
+        @if(Auth::user()->client_admin==1)
+        <li>
+          <a href="/userlist">
+            <i class="fa fa-user"></i> <span>Users</span>
+            <span class="pull-right-container"></span>
+          </a>
+        </li>
+        @endIf
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -51,9 +65,9 @@
   <script>
     var baseUrl = window.location.origin;
     function individual(){
-      window.location.href = baseUrl+'/player';
+      window.location.href = baseUrl+'/playerlist';
     }
     function team(){
-      window.location.href = baseUrl+'/team';
+      window.location.href = baseUrl+'/teamlist';
     }
   </script>

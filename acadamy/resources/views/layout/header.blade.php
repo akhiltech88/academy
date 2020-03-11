@@ -10,21 +10,21 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ URL::asset('dist/css/bootstrap.min.css') }}" >
   
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
-<link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" href="{{ URL::asset('dist/css/bootstrap-datetimepicker.min.css') }}"  />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">  
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{{ URL::asset('dist/css/AdminLTE.min.css') }}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="{{ URL::asset('dist/css/skins/_all-skins.min.css') }}">
     <!-- <link rel="stylesheet" href="plugins/datepicker/datepicker3.css"> -->
-    <link rel="stylesheet" href="dist/css/jquery-ui.css" type="text/css" media="all">
-  <link rel="stylesheet" href="dist/css/style.css">   
+    <link rel="stylesheet" href="{{ URL::asset('dist/css/jquery-ui.css') }}" type="text/css" media="all">
+  <link rel="stylesheet" href="{{ URL::asset('dist/css/style.css') }}">   
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,20 +37,28 @@
     //var baseUrl = '<?php echo URL::to("/"); ?>';
   </script>
   <!-- jQuery 3.1.1 -->
-<script src="dist/js/moment.min.js"></script>   
-<script src="dist/js/jquery.min.js"></script>
-<script src="dist/js/bootstrap.min.js"></script>
+<script src="{{ URL::asset('dist/js/moment.min.js') }}"></script>   
+<script src="{{ URL::asset('dist/js/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('dist/js/bootstrap.min.js') }}"></script>
 
-<script src="dist/js/bootstrap-datetimepicker.min.js"></script>
+<!-- <script src="dist/js/bootstrap-datetimepicker.min.js"></script> -->
+
 
 <!-- jQuery UI 1.11.4 -->
-<script src="dist/js/jquery-ui.min.js"></script>
+<script src="{{ URL::asset('dist/js/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 
 <!-- Bootstrap 3.3.7 -->
 
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="{{ URL::asset('dist/js/adminlte.min.js') }}"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 </head>
 

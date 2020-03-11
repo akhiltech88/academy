@@ -18,8 +18,13 @@ class SessionController extends Controller
         // return view('sessionregistration')->withGroups($group);
         $session = Session::whereType(0)->get();
         $session_team = Session::whereType(1)->get();
-        $teams = Team::where('user_id',Auth::user()->id)->get();
-        $player = Registration::where('user_id',Auth::user()->id)->get();
+        if(Auth::user()->client_admin == 1){
+            $teams = Team::get();
+            $player = Registration::get();
+        }else{
+            $teams = Team::where('user_id',Auth::user()->id)->get();
+            $player = Registration::where('user_id',Auth::user()->id)->get();
+        }
         return view('sessionregistration')
         ->withSessions($session)->withPlayers($player)
         ->withTeams($teams)->withSessionteam($session_team);
@@ -45,7 +50,7 @@ class SessionController extends Controller
         $session->end_date =date("Y-m-d");
         $session->status = 0;
         $session->save();
-        return redirect("player")->withSuccess('Player Added Successfully');
+        return redirect("playerlist")->withSuccess('Session registration confirmation is subject to payment');
     }
     public function saveTeamSession(Request $request){
         $validator = Validator::make($request->all(), [ 
@@ -63,6 +68,24 @@ class SessionController extends Controller
         $session->end_date =date("Y-m-d");
         $session->status = 0;
         $session->save();
-        return redirect("team")->withSuccess('Team Added Successfully');
+        return redirect("teamlist")->withSuccess('Team Added Successfully');
+    }
+
+    public function statusUpdate(Request $request){
+        $validator = Validator::make($request->all(), [ 
+            'player_id' => 'required',
+            'status' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required'
+		]);
+		if ($validator->fails()) { 
+			return redirect("playerlist")->withSuccess('Validation Failed');          
+        }
+        $session = SessionPlayer::find($request->player_id);
+        $session->start_date =date("Y-m-d",strtotime($request->start_date));
+        $session->end_date =date("Y-m-d",strtotime($request->end_date));
+        $session->status = $request->status;
+        $session->save();
+        return redirect("playerlist")->withSuccess('Player updated Successfully');
     }
 }

@@ -69,5 +69,12 @@ class UserController extends Controller
 	  Auth::logout();
 	  return redirect('/login');
 	}
+	public function userList(){
+		if(Auth::user()->client_admin == 0)
+        $users = User::where('id',Auth::user()->id)->paginate(10);
+        else
+        $users = User::paginate(10);
+        return view('userlist')->withUsers($users);
+	}
 	
 }

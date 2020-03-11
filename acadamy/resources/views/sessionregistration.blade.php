@@ -11,6 +11,12 @@
 							<h3 class="box-title">Session Individual Registration</h3>			  
 						</div>
 						<div class="box-body">
+						@if(session()->has('success'))
+						<div class="alert alert-success alert-dismissible">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							{{ session()->get('success') }} .
+						</div>
+						@endIf
 							<form class="form-horizontal" method="post" id="myForm" name="session" action="session">
                             <div class="col-sm-12">
                                 <div class="form-group"> <!-- Show only if individual select -->
@@ -133,22 +139,22 @@
 </script>
 
 <script>
-    $(function() {
-        $('select[name=player]').change(function() {
+    // $(function() {
+    //     $('select[name=player]').change(function() {
 
-            var url = '{{ url('player') }}/' + $(this).val() + '/session';
+    //         var url = '{{ url('player') }}/' + $(this).val() + '/session';
 
-            $.get(url, function(data) {
-                var select = $('form select[name= session]');
+    //         $.get(url, function(data) {
+    //             var select = $('form select[name= session]');
 
-                select.empty();
+    //             select.empty();
 
-                $.each(data,function(key, value) {
-                    select.append('<option value="' + value.id + '"data-foo="'+ value.details +'">' + value.name + '</option>');
-                });
-            });
-        });
-    });
+    //             $.each(data,function(key, value) {
+    //                 select.append('<option value="' + value.id + '"data-foo="'+ value.details +'">' + value.name + '</option>');
+    //             });
+    //         });
+    //     });
+    // });
 
 	var el = document.getElementById('myForm');
 

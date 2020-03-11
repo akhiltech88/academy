@@ -181,7 +181,7 @@
       <div class="row">
         <div class="span12">
           <div class="heading">
-            <h3><span>WHO ARE THE COACHING STAFFS?</span></h3>
+            <h3><span>WHO ARE THE COACHING STAFF?</span></h3>
           </div>
         </div>
       </div>
@@ -282,9 +282,8 @@
             FEE STRUCTURE 2020 </p>
           </div>
           <div class="sub-heading">
-            <h3><span style="color:white;">Coaching</span></h3>
             <p>
-            This will be a once off payment at the start of every year. This fee will cover the first month of training as well as the academy uniform (Branded shirt, trouser and cap).            
+            There will be a once off annual registration fee of 10 OMR. This fee will cover the Oman cricket academy uniform, which includes a shirt, trouser and cap.          
             </p>
           </div>
         </div>
@@ -443,7 +442,7 @@
 
       <div class="row">
         <div class="span6">
-        <h4><i class="icon-suitcase"></i><strong>Office Address</strong></h4>
+        <h4><strong>Office Address</strong></h4>
           <div class="dotted_line">
           </div>
           <p>
@@ -452,20 +451,20 @@
           <p>
           Building No-7000/1, Way No. 2690, Al Amerat, Sultanate of Oman
           </p>
-          <h4><i class="icon-suitcase"></i><strong>CONTACT US</strong></h4>
+          <h4><strong>CONTACT US</strong></h4>
           <div class="dotted_line">
           </div>
           <p>
           P.O. Box 3948, Ruwi – 112, Sultanate of Oman
           </p>
           <p>
-            <span><i class="icon-phone"></i><strong>Phone:</strong> +968 24970018 or +968 24970331</span>
+            <span><strong>Phone:</strong> +968 24970018 or +968 24970331</span>
           </p>
           <p>
-            <span><i class="icon-phone"></i><strong>Mobile:</strong> +968 91924529</span>
+            <span><strong>Mobile:</strong> +968 91924529</span>
           </p>
           <p>
-            <span><i class="icon-envelope-alt"></i><strong>Email:</strong> academy@omancricket.org</span>
+            <span><strong>Email:</strong> <a href="mailto:academy@omancricket.org">academy@omancricket.org</a></span>
           </p>
         </div>
         <div class="span6">
